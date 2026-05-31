@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery: Conditional Rendering</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav-bar"></div>
+
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image" />
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p
+              v-if="onSale"
+              style="
+                display: inline-block;
+                background-color: gold;
+                border-radius: 8px;
+                padding: 8px 15px;
+              "
+            >
+              On Sale
+            </p>
+            <p v-if="inStock || inventory > 0">In Stock</p>
+            <!-- v-show скрывает элемент но не удаляет его если условие не верно  -->
+            <p v-if="inventory > 10">
+              <em>There are more than 10 available</em>
+            </p>
+            <p v-if="inventory < 10 && inventory > 0">
+              <em style="color: red">Almost sold out</em>
+            </p>
+            <p v-else>Out of Stock</p>
+            <p v-show="!inStock && !inventory">It's realy out of Stock</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
+  </body>
+</html>
