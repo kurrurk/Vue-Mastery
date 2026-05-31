@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav-bar">
+        <ul>
+          <li><a :href="url_green">Green socks</a></li>
+          <li><a :href="url_blue">Blue socks</a></li>
+        </ul>
+      </div>
+
+      <div id="socks_green" class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image_green" />
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="socks_blue" class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image_blue" />
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Import App -->
+    <script src="./main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
+  </body>
+</html>
