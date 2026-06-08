@@ -8,8 +8,11 @@ const props = defineProps(['page'])
 const totalEvents = ref(0)
 
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvents.value / 2)
-  return props.page < totalPages
+  return props.page < totalPages.value
+})
+
+const totalPages = computed(() => {
+  return Math.ceil(totalEvents.value / 2)
 })
 
 const fetchEvents = () => {
@@ -48,6 +51,9 @@ watch(
         v-if="page != 1"
         >&#60 Previous</router-link
       >
+      <ul class="page-list">
+        <li v-for="pageId in totalPages" :class="{ active: pageId === page }" :key="pageId"><router-link :to="{ name: 'event-list', query: { page: pageId } }">{{ pageId }}</router-link></li>
+      </ul>
       <router-link
         id="page-next"
         :to="{ name: 'event-list', query: { page: page + 1 } }"
@@ -70,7 +76,11 @@ watch(
   width: 290px;
 }
 .pagination a {
-  flex: 1;
+  min-width: 20px;
+  min-height: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: #2c3e50;
 }
@@ -79,5 +89,20 @@ watch(
 }
 #page-next {
   text-align: right;
+}
+
+.page-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  list-style: none;
+  padding: 0 30px;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.page-list .active a { 
+  font-weight: 900;
+  color: #42b983;
 }
 </style>
