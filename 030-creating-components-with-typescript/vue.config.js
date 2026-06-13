@@ -3,7 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   pages: {
     index: {
-      entry: "src/main.js",
+      entry: "src/main.ts",
       title: "Intro to Vue 3 + TypeScript: Creating Components with TypeScript",
     },
   },
