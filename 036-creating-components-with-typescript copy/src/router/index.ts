@@ -1,0 +1,35 @@
+import { createRouter, createWebHistory } from "vue-router";
+import EventListView from "../views/EventListView.vue";
+import EventDetailsView from "../views/EventDetailsView.vue";
+import AboutView from "../views/AboutView.vue";
+
+import TodoView from "../views/TodoView.vue";
+
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes: [
+    {
+      path: "/",
+      name: "event-list",
+      component: EventListView,
+    },
+    {
+      path: "/event/:id",
+      name: "event-details",
+      props: true,
+      component: EventDetailsView,
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: AboutView,
+    },
+    {
+      path: "/todo",
+      name: "todo",
+      component: TodoView,
+    },
+  ],
+});
+
+export default router;
