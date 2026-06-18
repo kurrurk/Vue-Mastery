@@ -1,0 +1,19 @@
+{
+  "name": "037-intro-to-vite",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.5.38",
+    "vue": "^3.5.38"
+  }
+}
