@@ -1,0 +1,19 @@
+{
+  "name": "037-intro-to-vite",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "postcss-nested": "^7.0.2",
+    "postcss-nesting": "^14.0.0",
+    "sass": "^1.101.0"
+  }
+}
