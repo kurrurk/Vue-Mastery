@@ -3,10 +3,10 @@
     role="alert"
     :class="[
       'notification',
-      status === 'error' ? 'notification--errors' : null,
+      status === 'error' ? 'notification--error' : null,
       status === 'success' ? 'notification--success' : null,
       status === 'info' ? 'notification--info' : null,
-      message && message.length > 0 ? 'notification--slide' : null,
+      message && message.length > 0 ? 'notification--slide' : null
     ]"
   >
     <p class="notification__text">
@@ -23,17 +23,18 @@
     </button>
   </div>
 </template>
+
 <script setup>
 defineProps({
   status: {
     type: String,
-    default: null,
+    default: null
   },
   message: {
     type: String,
-    default: null,
-  },
-});
+    default: null
+  }
+})
 </script>
 
 <style>
@@ -45,7 +46,7 @@ defineProps({
   box-sizing: border-box;
   padding: 10px 15px;
   width: 100%;
-  max-width: 730px;
+  max-width: min(calc(100vw - 30px), 730px);
   display: flex;
   position: fixed;
   top: 20px;
